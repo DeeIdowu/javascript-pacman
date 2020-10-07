@@ -49,21 +49,21 @@ class GameBoard {
 	//method to remove classes:
 	removeObject(pos, classes) {
 		this.grid[pos].classList.remove(...classes);
-
-    //method to check if object exists:
-    objectExists(pos, object){
-        return this.grid[pos].classList.contains(object)
-    }
-
-    rotateDiv(pos, deg){
-        this.grid[pos].style.transform = `rotate({deg}deg)`;
-    }
+	}
+	//method to check if object exists:
+	objectExists(pos, object) {
+		return this.grid[pos].classList.contains(object);
 	}
 
-    //Static method - something you can call withing initiating the Calss
-    static createGameBoard(DOMGrid, level){
-        const board = new this(DOMGrid)
-        board.createGrid(level);
-        return board;
-    }
+	rotateDiv(pos, deg) {
+		this.grid[pos].style.transform = `rotate({deg}deg)`;
+	}
+	//Static method - something you can call withing initiating the Class
+	static createGameBoard(DOMGrid, level) {
+		const board = new this(DOMGrid);
+		board.createGrid(level);
+		return board;
+	}
 }
+
+export default GameBoard;
