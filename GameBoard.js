@@ -33,6 +33,30 @@ class GameBoard {
 			div.classList.add('square', CLASS_LIST[square]);
 			//styling:
 			div.style.cssText = `width: ${CELL_SIZE}px; height: ${CELL_SIZE}px`;
+			//append to DOMGrid
+			this.DOMGrid.appendChild(div);
+			this.grid.push(div);
+
+			//calculate count of the game:
+			if (CLASS_LIST[square] === OBJECT_TYPE.DOT) this.dotCount++;
 		});
+	}
+
+	//method to add classes:
+	addObject(pos, classes) {
+		this.grid[pos].classList.add(...classes);
+	}
+	//method to remove classes:
+	removeObject(pos, classes) {
+		this.grid[pos].classList.remove(...classes);
+
+    //method to check if object exists:
+    objectExists(pos, object){
+        return this.grid[pos].classList.contains(object)
+    }
+
+    rotateDiv(pos, deg){
+        this.grid[pos].style.transform = `roate({deg}deg)`
+    }
 	}
 }
