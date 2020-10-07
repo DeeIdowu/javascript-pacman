@@ -56,7 +56,14 @@ class GameBoard {
     }
 
     rotateDiv(pos, deg){
-        this.grid[pos].style.transform = `roate({deg}deg)`
+        this.grid[pos].style.transform = `rotate({deg}deg)`;
     }
 	}
+
+    //Static method - something you can call withing initiating the Calss
+    static createGameBoard(DOMGrid, level){
+        const board = new this(DOMGrid)
+        board.createGrid(level);
+        return board;
+    }
 }
