@@ -5,6 +5,13 @@ import GameBoard from './GameBoard';
 import Pacman from './Pacman';
 import Ghost from './Ghost';
 
+//Sounds:
+import soundDot from './sounds/munch.wav';
+import soundPill from './sounds/pill.wav';
+import soundGameStart from './sounds/game_start.wav';
+import soundGameOver from './sounds/death.wav';
+import soundGhost from './sounds/eat_ghost.wav';
+
 //DOM Elements:
 const gameGrid = document.querySelector('#game');
 const scoreTable = document.querySelector('#score');
@@ -21,6 +28,9 @@ let timer = null;
 let gameWin = false;
 let powerPillActive = false; // when pacman eats powerpill
 let powerPillTimer = null;
+
+//Audio:
+function playAudio(audio) {}
 
 //functions required:
 function gameOver(pacman, grid) {
