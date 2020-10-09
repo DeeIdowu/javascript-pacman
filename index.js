@@ -46,6 +46,7 @@ function gameLoop(pacman, ghosts) {
 	checkCollision(pacman, ghosts);
 
 	ghosts.forEach((ghost) => gameBoard.moveCharacter(ghost));
+	checkCollision(pacman, ghosts);
 }
 
 function startGame() {
