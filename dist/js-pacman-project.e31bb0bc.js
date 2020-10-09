@@ -650,6 +650,9 @@ function checkCollision(pacman, ghosts) {}
 
 function gameLoop(pacman, ghosts) {
   gameBoard.moveCharacter(pacman);
+  ghosts.forEach(function (ghost) {
+    return gameBoard.moveCharacter(ghost);
+  });
 }
 
 function startGame() {
@@ -665,7 +668,7 @@ function startGame() {
   });
   var ghosts = [new _Ghost.default(5, 188, _ghostMoves.randomMovement, _setup.OBJECT_TYPE.BLINKY), new _Ghost.default(4, 209, _ghostMoves.randomMovement, _setup.OBJECT_TYPE.PINKY), new _Ghost.default(3, 230, _ghostMoves.randomMovement, _setup.OBJECT_TYPE.INKY), new _Ghost.default(2, 251, _ghostMoves.randomMovement, _setup.OBJECT_TYPE.CLYDE)];
   timer = setInterval(function () {
-    return gameLoop(pacman);
+    return gameLoop(pacman, ghosts);
   }, GLOBAL_SPEED);
 } //Initialize via eventlistener
 

@@ -29,6 +29,8 @@ function checkCollision(pacman, ghosts) {}
 
 function gameLoop(pacman, ghosts) {
 	gameBoard.moveCharacter(pacman);
+
+	ghosts.forEach((ghost) => gameBoard.moveCharacter(ghost));
 }
 
 function startGame() {
@@ -51,7 +53,7 @@ function startGame() {
 		new Ghost(2, 251, randomMovement, OBJECT_TYPE.CLYDE),
 	];
 
-	timer = setInterval(() => gameLoop(pacman), GLOBAL_SPEED);
+	timer = setInterval(() => gameLoop(pacman, ghosts), GLOBAL_SPEED);
 }
 
 //Initialize via eventlistener
