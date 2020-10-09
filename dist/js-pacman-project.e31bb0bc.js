@@ -694,6 +694,14 @@ function gameLoop(pacman, ghosts) {
     powerPillTimer = setTimeout(function () {
       return pacman.powerPill = false;
     }, POWER_PILL_TIME);
+  } //Change ghost scare mode:
+
+
+  if (pacman.powerPill !== powerPillActive) {
+    powerPillActive = pacman.powerPill;
+    ghosts.forEach(function (ghost) {
+      return ghost.isScared = pacman.powerPill;
+    });
   }
 }
 
